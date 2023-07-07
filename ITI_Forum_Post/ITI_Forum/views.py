@@ -1,12 +1,20 @@
+from rest_framework.response import Response
+from rest_framework.reverse import reverse
 from django.shortcuts import render
 from rest_framework import viewsets
-from .models import User, Postdata
-from .serializer import UserSerializer, PostdataSerializer
+from rest_framework import permissions
+from .models import Users, Fourm_post
+from .serializer import UsersSerializer, FourmPostSerializer
+
 
 class UserViewSet(viewsets.ModelViewSet):
-    queryset = User.objects.all()
-    serializer_class = UserSerializer
 
-class PostdataViewSet(viewsets.ModelViewSet):
-    queryset = Postdata.objects.all()
-    serializer_class = PostdataSerializer
+    queryset = Users.objects.all()
+    serializer_class = UsersSerializer
+    permission_classes = [permissions.IsAuthenticated]
+
+
+class FourmPostViewSet(viewsets.ModelViewSet):
+    queryset = Fourm_post.objects.all()
+    serializer_class = FourmPostSerializer
+    permission_classes = [permissions.IsAuthenticated]
