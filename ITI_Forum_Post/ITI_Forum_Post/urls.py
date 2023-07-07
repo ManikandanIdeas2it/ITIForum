@@ -27,13 +27,16 @@ Including another URLconf
 from django.contrib import admin
 from django.urls import include, path
 from rest_framework import routers
-from ITI_Forum.views import UserViewSet, PostdataViewSet
+from ITI_Forum.views import UserViewSet, FourmPostViewSet
 
 router = routers.DefaultRouter()
-router.register(r'users', UserViewSet)
-router.register(r'postdata', PostdataViewSet)
+router.register(r'users', UserViewSet, basename='user')
+router.register(r'fourmpost', FourmPostViewSet, basename='fourmpost')
 
 urlpatterns = [
+    path('', include(router.urls)),
     path('admin/', admin.site.urls),
-    path('ITIForum/', include(router.urls)),
+    path('api-auth/', include('rest_framework.urls', namespace='rest_framework'))
 ]
+
+urlpatterns += router.urls

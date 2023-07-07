@@ -1,27 +1,26 @@
+import uuid
 from django.db import models
 
-# user -> id(AutoField), emp_id(CharField), name(CharField), createdat(IntegerField), CreatedDate(DateTimeField)
-# Create your models here.
-class User(models.Model):
-    emp_id = models.CharField(max_length=20)
-    name = models.CharField(max_length=30)
-    createdat = models.IntegerField()
-    createddate = models.DateTimeField()
+
+class Fourm_post(models.Model):
+    post_id = models.UUIDField(
+        blank=False, null=False, primary_key=True, default=uuid.uuid4, editable=False)
+    post_text = models.CharField(max_length=600)
+    post_image = models.BinaryField()
+    post_caption = models.CharField(max_length=200)
+    User_user_id = models.UUIDField(blank=False, null=False)
+    Post_likes_like_id = models.UUIDField(blank=False, null=False)
+    Post_comment_comm_id = models.UUIDField(blank=False, null=False)
 
     def __str__(self):
-        return self.name
+        return self.post_id
 
-# Postdata -> postid(AutoField), emp_id(CharField), text(CharField), Image(CharField),Categories(CharField),Like(IntegerField), Comment(CharField),Caption(CharField), createdat(IntegerField), CreatedDate(DateTimeField)
-class Postdata(models.Model):
-    emp_id = models.CharField(max_length=20)
-    text = models.CharField(max_length=500)
-    image = models.CharField(max_length=500)
-    categories = models.CharField(max_length=50)
-    like = models.IntegerField()
-    comment = models.CharField(max_length=500)
-    caption = models.CharField(max_length=500)
-    createdat = models.IntegerField()
-    createddate = models.DateTimeField()
+
+class Users(models.Model):
+    user_id = models.UUIDField(
+        blank=False, null=False, primary_key=True, default=uuid.uuid4, editable=False)
+    user_name = models.CharField(max_length=50, blank=False, null=False)
+    user_emp_id = models.CharField(max_length=6, blank=False, null=False)
 
     def __str__(self):
-        return self.text
+        return self.user_name

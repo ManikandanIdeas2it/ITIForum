@@ -78,11 +78,11 @@ WSGI_APPLICATION = 'ITI_Forum_Post.wsgi.application'
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.postgresql',
-        'NAME' : 'ITIForum',
-        'USER' : 'postgres',
-        'PASSWORD' : 'Temp@123',
-        'HOST' : 'localhost',
-        'PORT' : '5432'
+        'NAME': 'ITI_Fourm_Post',
+        'USER': 'postgres',
+        'PASSWORD': 'password',
+        'HOST': 'hostname',
+        'PORT': 'insertpost'
     }
 }
 

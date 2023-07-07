@@ -1,12 +1,15 @@
 from rest_framework import serializers
-from .models import User, Postdata
+from .models import Users, Fourm_post
 
-class UserSerializer(serializers.ModelSerializer):
-    class Meta:
-        model = User
-        fields = ('id', 'emp_id', 'name', 'createdat', 'Createddate')
 
-class PostdataSerializer(serializers.ModelSerializer):
+class UsersSerializer(serializers.ModelSerializer):
     class Meta:
-        model = Postdata
-        fields = ('postid', 'emp_id', 'text', 'image', 'categories', 'like', 'comment', 'caption', 'createdat', 'Createddate')
+        model = Users
+        fields = ('user_id', 'user_name', 'user_emp_id')
+
+
+class FourmPostSerializer(serializers.ModelSerializer):
+    class Meta:
+        model = Fourm_post
+        fields = ('post_id', 'post_text', 'post_image', 'post_caption', 'User_user_id',
+                  'Post_likes_like_id', 'Post_comment_comm_id')
