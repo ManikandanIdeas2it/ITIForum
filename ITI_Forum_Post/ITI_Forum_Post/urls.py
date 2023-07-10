@@ -27,13 +27,15 @@ Including another URLconf
 from django.contrib import admin
 from django.urls import include, path
 from rest_framework import routers
-from ITI_Forum.views import UserViewSet, PostdataViewSet
+#from ITI_Forum.views import UserViewSet, PostdataViewSet
 
-router = routers.DefaultRouter()
-router.register(r'users', UserViewSet)
-router.register(r'postdata', PostdataViewSet)
+
+#router = routers.DefaultRouter()
+#router.register(r'users', UserViewSet)
+#router.register(r'postdata', PostdataViewSet)
 
 urlpatterns = [
     path('admin/', admin.site.urls),
-    path('ITIForum/', include(router.urls)),
+    path('posts/', include('forum_post.api.urls')),
+    #path('ITIForum/', include(router.urls)),
 ]

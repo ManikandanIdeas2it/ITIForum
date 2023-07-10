@@ -38,7 +38,8 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'rest_framework',
-    'ITI_Forum'
+    'ITI_Forum',
+    'forum_post'
 ]
 
 MIDDLEWARE = [
@@ -80,7 +81,7 @@ DATABASES = {
         'ENGINE': 'django.db.backends.postgresql',
         'NAME' : 'ITIForum',
         'USER' : 'postgres',
-        'PASSWORD' : 'Temp@123',
+        'PASSWORD' : 'I23038',
         'HOST' : 'localhost',
         'PORT' : '5432'
     }
